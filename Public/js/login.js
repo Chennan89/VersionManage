@@ -17,13 +17,14 @@ define(["jquery"], function($){
 			$(document).on("click", ".edit", this.editRemark);
 			$(document).on("click", ".save", this.saveRemark);
 
-			//$(document).on("click", ".newEdition", this.getSubVersions);//newEdition  大版本才会有的 class名
+			$(document).on("click", ".newEdition", this.getSubVersions);//newEdition  大版本才会有的 class名
 			$(document).on("click", "#baseVersion", this.newBaseVersion);//新建大版本
 			$(document).on("click", "#version", this.newVersion);//新建小版本
-
+			$(document).on("click", ".edition", function(e){e.stopPropagation();});//点击小版本不触发 取子级操作
 		},
 		showRemark:function(e){
-			if(!$(this).closest("li").hasClass("newEdition")){
+			//console.log($(this).closest("li").hasClass("edition"))
+			if($(this).closest("li").hasClass("edition")){
 				e.stopPropagation();
 			}
 			//console.log(this);//返回一个对象
@@ -46,7 +47,7 @@ define(["jquery"], function($){
 			}else{
 				$(this).closest(".timeline-body").children(".timeline-content").show();
 			}
-			this.getSubVersions;
+			
 		},
 		saveRemark:function(e){
 			e.stopPropagation();
@@ -85,14 +86,13 @@ define(["jquery"], function($){
 				}
 			);
 		},
-		getSubVersions:function(){alert(2)
+		getSubVersions:function(){
 			//获得大版本下的子版本
-			var curDir=$(this).closest(".newEdition").find(".timeline-body>h2").text();
-			//var curDir=$(this).find(".timeline-body>h2").text();
+			var curDir=$(this).find(".timeline-body>h2").text();
 			//console.log(curDir)
 			var path=$(this).data("dir")+"/"+curDir;
 			var contat="&nbsp;&nbsp;&nbsp;&nbsp;";
-			$this=$(this).closest(".newEdition");
+			$this=$(this);
 			//console.log($this)
 			var data={"preDir":path, "prelayer":"", "contat":contat, refer:"ajax", class:"", parent:curDir}
 			$.post(
