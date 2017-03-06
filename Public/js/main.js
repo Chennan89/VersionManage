@@ -16,6 +16,7 @@ APP.TPLPATH = './inc/'; //模板路径
 
 APP.TEST=1;//切换线上线下  0表示线上 1表示线下
 APP.PATHROOT=APP.TEST ? '../Versions/':'../../Versions/';
+APP.RESROOT=APP.TEST ? '../CasinoMatchUpdate/luatest':'../../CasinoMatchUpdate/luatest';//记录资源文件存放的路径
 
 //加载器配置
 require.config({

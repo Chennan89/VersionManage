@@ -36,7 +36,8 @@
 		if(!empty($class)){
 			$editRemark="";
 		}else{
-			$editRemark="<a href='javascript:;' class='edit btn purple'><i class='icon-pencil'></i> Edit</a><a href='javascript:;' class='save btn green'><i class='icon-save'></i>Save</a>";
+			$editRemark="<a href='javascript:;' class='edit btn purple'><i class='icon-pencil'></i> Edit</a><a href='javascript:;' class='save btn yellow'><i class='icon-save'></i>Save</a>";
+			$class="edition";
 		}
 		$path = checkiconv($path, 'gbk2utf');//为保证下次传过来的参数是UTF-8的
 		foreach ($file as $fileinfo) {
@@ -50,7 +51,7 @@
 	    	}
 	        $bgPos = 20*($layer-1).'px';//echo $class;
 
-	        echo "<li class='timeline-yellow ".$class."' data-dir='$path' style='margin-left:{$liL};'><div class='timeline-time'><span class='time' style='font-size:16px;'>".$createTime."</span></div><div class='timeline-icon'><i class='icon-tag'></i></div><div class='timeline-body'><h2 style='display:inline-block;margin:0;border:none;width:75%;overflow:hidden;height:30px;line-height:34px;'>".$filename."</h2><div class='portlet-title' style='display:inline-block; float:right; border:none;'><div class='actions'><a href='javascript:;' class='collapse arrow' style='display:inline-block; width:14px; height:16px;' data-id='{$filename}' data-parent='$parent'></a>{$editRemark}</div></div></div></li>";
+	        echo "<li class='timeline-green ".$class."' data-dir='$path' style='margin-left:{$liL};'><div class='timeline-time'><span class='time' style='font-size:16px;'>".$createTime."</span></div><div class='timeline-icon'><i class='icon-tag'></i></div><div class='timeline-body'><h2 style='display:inline-block;margin:0;border:none;width:75%;overflow:hidden;height:30px;line-height:34px;'>".$filename."</h2><div class='portlet-title' style='display:inline-block; float:right; border:none;'><div class='actions'>{$editRemark}<a href='javascript:;' class='collapse arrow' style='display:inline-block; width:14px; height:16px;' data-id='{$filename}' data-parent='$parent'></a></div></div></div></li>";
 		    //echo "<div data-layer='$layer' data-unique='{$path}{$filename}' data-dir='$path' data-clicked=0 id='$filename' class='{$class}' style='background-position:$bgPos 0px;'>".$contat. "<div class='$addClass'>&nbsp;</div>$filename </div>";
 	    }
 	}

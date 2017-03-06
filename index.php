@@ -13,9 +13,10 @@
 		body{min-width:1100px;}
 		.collapse{background-image:url(./Public/image/portlet-collapse-icon-white.png);}
 		.uncollapse{background-image:url(./Public/image/portlet-expand-icon-white.png);}
-		.edit, .save{display:none;}
+		.edit, .save{display:none; margin-right:5px;}
 		.timeline > li .timeline-content{font-size:20px; color:#333; outline:#EEE solid; line-height:30px; min-height:30px;}
 		/* .timeline li.newEdition .timeline-body:after{content:none;} */
+		/* .selected{} */
 	</style>
 </head>
 <body>
@@ -31,6 +32,7 @@
 		<a href="#" class="btn blue" id="baseVersion"><i class="icon-plus"></i>新建大版本</a>
 		<input type="text" placeholder="medium" class="m-wrap small" id="versionName">
 		<a href="#" class="btn blue" id="version"><i class="icon-plus"></i>新建小版本版本</a>
+		<input type="text" name="selectedDir" id="selectedDir"/><!--用于记录哪个目录被选中-->
 	</div>
 
 	<div class="row-fluid" style="width:80%;margin:0 auto;">

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>    
+<title></title>    
+<script src="./Public/js/lib/jquery-1.12.1.min.js" type="text/javascript"></script>    
+<script>
+$(function () {            
+var num = 0;            
+var timeFunName = null;            
+$("button").bind("click", function () {                
+// 取消上次延时未执行的方法                
+clearTimeout(timeFunName);                
+// 延时300毫秒执行单击                
+timeFunName = setTimeout(function () {                    
+num++;                    
+$("textarea").val($("textarea").val() + "第" + num + "次事件，事件名：单击/n");                
+}, 300);            }).bind("dblclick", function () {                
+// 取消上次延时未执行的方法                
+clearTimeout(timeFunName);                
+num++;                
+$("textarea").val($("textarea").val() + "第" + num + "次事件，事件名：双击/n");            
+});        
+});    
+</script>
+</head>
+<body>    
+<textarea rows="20" cols="50"></textarea><button type="button">提交</button></body></html>
